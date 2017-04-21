@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.abooc.util.Debug;
 
-public class ShakerActivity extends AppCompatActivity implements
+public class ShakerMainActivity extends AppCompatActivity implements
         SensorEventBuilder.EventListener {
 
     private SensorEventBuilder mSensorBuilder;
@@ -49,8 +49,9 @@ public class ShakerActivity extends AppCompatActivity implements
 
     public void onShowDialog(View view) {
 //        showDialog();
-        TDialogActivity.launch(this);
-        TDialogActivity.launch(this);
+        TDialog.launch(this);
+
+        TDialog.launch(this); // TODO 测试强制启动两次
     }
 
     private void showDialog() {

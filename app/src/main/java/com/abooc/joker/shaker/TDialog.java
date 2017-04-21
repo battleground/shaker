@@ -1,23 +1,23 @@
 package com.abooc.joker.shaker;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.media.AudioManager;
-import android.media.SoundPool;
 import android.os.Bundle;
 import android.view.View;
 
 import com.abooc.util.Debug;
 
-public class TDialogActivity extends Activity {
+public class TDialog extends Activity {
 
     public static void launch(Activity context) {
-        Intent intent = new Intent(context, TDialogActivity.class);
+        Intent intent = new Intent(context, TDialog.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
         context.startActivity(intent);
         context.overridePendingTransition(android.R.anim.slide_in_left, 0);
     }
+
+    private SoundRing mSoundRing;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +26,8 @@ public class TDialogActivity extends Activity {
         setContentView(R.layout.joker_dialog_shake);
 
 
-        sound(this);
-        playSound();
+        mSoundRing = new SoundRing(this);
+        mSoundRing.playSound();
     }
 
     @Override
@@ -42,27 +42,8 @@ public class TDialogActivity extends Activity {
 
     boolean isShowing;
 
-    private SoundPool mSoundPool;
-    private int mSoundID;
-
-    void sound(Context context) {
-        mSoundPool = new SoundPool(5, AudioManager.STREAM_RING, 0);
-        mSoundID = mSoundPool.load(context.getApplicationContext(), R.raw.shake_sound_male, 1);
-    }
-
-    private void playSound() {
-        mSoundPool.play(
-                mSoundID,
-                1.0f,      //左耳道音量【0~1】
-                1.0f,      //右耳道音量【0~1】
-                0,         //播放优先级【0表示最低优先级】
-                0,         //循环模式【0表示循环一次，-1表示一直循环，其他表示数字+1表示当前数字对应的循环次数】
-                1          //播放速度【1是正常，范围从0~2】
-        );
-    }
-
     public void onPlay(View view) {
-        playSound();
+        mSoundRing.playSound();
     }
 
     public void onShowDialog(View view) {
@@ -92,6 +73,6 @@ public class TDialogActivity extends Activity {
     protected void onDestroy() {
         Debug.anchor();
         super.onDestroy();
-        mSoundPool.release();
+        mSoundRing.release();
     }
 }

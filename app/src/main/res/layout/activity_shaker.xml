@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.abooc.joker.shaker.ShakerActivity">
+    tools:context="com.abooc.joker.shaker.ShakerMainActivity">
 
     <TextView
         android:layout_width="wrap_content"

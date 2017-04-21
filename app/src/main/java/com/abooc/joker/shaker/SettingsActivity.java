@@ -51,8 +51,8 @@ public class SettingsActivity extends AppCompatActivity implements
 
     public void onShowDialog(View view) {
 //        showDialog();
-        TDialogActivity.launch(this);
-        TDialogActivity.launch(this);
+        TDialog.launch(this);
+        TDialog.launch(this);
     }
 
     private void showDialog() {
