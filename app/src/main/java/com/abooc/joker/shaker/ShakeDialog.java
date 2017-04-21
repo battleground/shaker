@@ -11,6 +11,7 @@ import android.view.WindowManager;
  * Created by dayu on 2016/12/22.
  */
 
+@Deprecated
 public class ShakeDialog extends android.app.Dialog implements View.OnClickListener {
 
 

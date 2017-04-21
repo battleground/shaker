@@ -7,8 +7,8 @@ android {
         applicationId "com.abooc.joker.shaker"
         minSdkVersion 15
         targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        versionCode 5
+        versionName "1.0.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -32,4 +32,5 @@ dependencies {
     testCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 
     compile 'com.abooc.debug:debug-core:latest.integration'
+    compile 'com.abooc.plugin:plugin-about:2.0.2.200170218'
 }
