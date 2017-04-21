@@ -9,8 +9,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="设置页"
-        android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+        android:padding="12dp"
+        android:text="本页面也支持摇一摇！"
         android:textStyle="bold" />
 
 

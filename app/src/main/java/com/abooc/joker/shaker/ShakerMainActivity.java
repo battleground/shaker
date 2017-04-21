@@ -40,7 +40,13 @@ public class ShakerMainActivity extends AppCompatActivity implements
         onShowDialog(null);
     }
 
+    private SoundRing mSoundRing;
+
     public void onPlay(View view) {
+        if (mSoundRing == null) {
+            mSoundRing = new SoundRing(this);
+        }
+        mSoundRing.playSound();
     }
 
     public void onOpenSettings(View view) {
@@ -64,6 +70,9 @@ public class ShakerMainActivity extends AppCompatActivity implements
         Debug.anchor();
         super.onDestroy();
         mSensorBuilder.destroy();
+        if (mSoundRing != null) {
+            mSoundRing.release();
+        }
     }
 
 }
